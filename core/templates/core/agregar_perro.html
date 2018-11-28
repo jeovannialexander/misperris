@@ -1,0 +1,65 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block contenido_info %}
+<div class="tit">
+        <h2>Registra tu Mascota</h2>
+</div>
+
+<form action="" method="POST" enctype="multipart/form-data">
+
+{% csrf_token %}
+<div class="container">
+<div class="registro">
+    <label for="">Nombre</label>
+    <input type="text" name="txtNombre" id="txtNombre" class="form-control">
+    <br>
+    <label for="">Raza</label>
+    <select name="cboRaza" id="cboRaza" class="form-control">
+        <option value="">Seleccionar</option>
+    
+        {% for m in razas %}
+            <option value="{{ m.id }}">{{ m.descripcion }}</option>
+        {% endfor %}
+    
+    </select>
+    <br>
+    <label for="">Genero</label>
+    <select name="cboGenero" id="cboGenero" class="form-control">
+       <option value="">Seleccionar</option>
+   
+       {% for n in generos %}
+           <option value="{{ n.id }}">{{ n.nombre }}</option>
+       {% endfor %}
+   </select>
+   <br>
+    <label for="">Fecha Ingreso</label>
+    <input type="date" name="txtIngreso" id="txtIngreso" class="form-control">
+    <br>
+    <label for="">Fecha Nacimiento</label>
+    <input type="date" name="txtNacimiento" id="txtNacimiento" class="form-control">
+    <br>
+
+    <br>
+    <label for="">Imagen</label>
+    <input type="file" name="txtImagen" id="txtImagen" class="form-control">
+    <br>
+    <label for="">Estado</label>
+     <select name="cboEstado" id="cboEstado" class="form-control">
+        <option value="">Seleccionar</option>
+    
+        {% for e in estados %}
+            <option value="{{ e.id }}">{{ e.nombre }}</option>
+        {% endfor %}
+    </select>
+    <br>
+    
+    
+    <input type="submit" value="Guardar" class="btn btn-info">
+    
+    </form>
+</div>
+    <h3>{{ mensaje }}</h3>
+</div>
+
+
+{% endblock contenido_info %}

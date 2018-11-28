@@ -1,0 +1,66 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block contenido_info %}
+
+<h2>Registrarse</h2>
+
+<form action="" id="formularioAdoptador"  method="POST">
+
+    {% csrf_token %}
+    <div class="container">
+        <label for="">Run:</label>
+        <input type="text" name="txtRun" id="txtRun">
+        <br>
+        <label for="">Nombre:</label>
+        <input type="text" name="txtNombre" id="txtNombre">
+        <br>
+        <label for="">Apellido:</label>
+        <input type="text" name="txtApellido" id="txtApellido">
+        <br>
+        <label for="">Fecha de nacimiento</label>
+        <input type="date" name="Fecha" id="Fecha">
+        <br>
+        <label for="">E-mail:</label>
+        <input type="text" name="txtEmail" id="txtEmail">
+        <br>
+        <label for="">Telefono</label>
+        <input type="number" name="txtTelefono" id="txtTelefono">
+        <br>
+        <label for="">Region:</label>
+        <select name="cboRegion" id="cboRegion">
+            <option value="">Seleccionar</option>
+            {% for m in regiones %}
+
+            <option value="{{ m.id }}">{{ m.descripcion }}</option>
+
+            {% endfor %}
+
+        </select>
+        <br>
+        <label for="">Ciudad</label>
+        <select name="cboCiudad" id="cboCiudad">
+            <option value="">Seleccionar</option>
+            {% for n in ciudades %}
+
+            <option value="{{ n.id }}">{{ n.descripcion }}</option>
+
+            {% endfor %}
+        </select>
+        <br>    
+        <label for="">Tipo de Vivienda:</label>
+        <select name="cboTipoVivienda" id="cboTipoVivienda">
+            <option value="">Seleccionar</option>
+            {% for v in tipoviviendas %}
+
+            <option value="{{ v.id }}">{{ v.descripcion }}</option>
+
+            {% endfor %}
+        </select>
+        <br>
+
+        <input type="submit" name="btnGuardar" id="btnGuardar" value="Guardar">
+    </div>
+</form>
+
+    <h3>{{ mensaje }}</h3>
+{% endblock contenido_info %}

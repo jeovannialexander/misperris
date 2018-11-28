@@ -1,0 +1,35 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block contenido_info %}
+<style>
+    .imagen_galeria {
+        display: inline;
+    }
+</style>
+<div class="galeria" >
+    <div class="row">
+        <div class="col-md-12">
+            
+            <a data-fancybox="gallery" class="imagen_galeria" href="{% static 'core/imagenes/Bigotes.jpg' %}"></a><img src="{% static 'core/imagenes/Bigotes.jpg' %}"></a>
+            
+            <a data-fancybox="gallery" class="imagen_galeria" href="{% static 'core/imagenes/Luna.jpg' %}"><img src="{% static 'core/imagenes/Luna.jpg' %}"></a> 
+        </div>
+
+    </div> 
+       
+        <a data-fancybox="gallery" href="{% static 'core/imagenes/Chocolate.jpg' %}"><img src="{% static 'core/imagenes/Chocolate.jpg' %}"></a>
+        <a data-fancybox="gallery" href="{% static 'core/imagenes/Maya.jpg' %}"><img src="{% static 'core/imagenes/Maya.jpg' %}"></a> 
+
+        <a data-fancybox="gallery" href="{% static 'core/imagenes/Oso.jpg' %}"><img src="{% static 'core/imagenes/Oso.jpg' %}"></a>
+        <a data-fancybox="gallery" href="{% static 'core/imagenes/Pexel.jpg' %}"><img src="{% static 'core/imagenes/Pexel.jpg' %}"></a>
+</div>
+  
+
+{% endblock contenido_info %}  
+
+
+
+
+
+

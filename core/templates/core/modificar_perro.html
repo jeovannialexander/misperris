@@ -1,0 +1,87 @@
+{% extends 'core/base.html' %}
+
+{% block contenido_info %}
+<div class="tit">
+        <h2>Modificar Mascota</h2>
+</div>
+
+<form action="" method="POST" enctype="multipart/form-data">
+
+{% csrf_token %}
+<div class="container">
+<div class="registro">
+
+    <input type="hidden" name="txtId" id="txtId" value="{{ mascotas.nombre }}">
+    <label for="">Nombre</label>
+    <input type="text" name="txtNombre" id="txtNombre" value="{{ mascotas.nombre }}" class="form-control">
+    <br>
+    <label for="">Raza</label>
+    <select name="cboRaza" id="cboRaza" class="form-control" value="{{ mascotas.raza }}">
+        <option value="">Seleccionar</option>
+    
+        {% for m in razas %}
+
+        <option
+        {% if m.id == mascotas.raza.id %}
+        {{'selected'}}
+
+        {% endif %}
+
+
+         value="{{ m.id }}">{{ m.descripcion }}</option>
+        {% endfor %}
+    
+    </select>
+    <br>
+    <label for="">Genero</label>
+    <select name="cboGenero" id="cboGenero" class="form-control" value="{{ mascotas.genero }}">
+       <option value="">Seleccionar</option>
+   
+       {% for n in generos %}
+        <option
+        {% if n.id= mascotas.genero.id %}
+        {{'selected'}}
+
+        {% endif %}
+
+        values="{{ n.id }}">{{ n.nombre }}</option>
+       {% endfor %}
+   </select>
+   <br>
+    <label for="">Fecha Ingreso</label>
+    <input type="date" name="txtIngreso" id="txtIngreso" class="form-control" value="{{ mascotas.fecha_ingreso }}">
+    <br>
+    <label for="">Fecha Nacimiento</label>
+    <input type="date" name="txtNacimiento" id="txtNacimiento" class="form-control" value="{{ mascotas.fecha_nacimiento }}">
+    <br>
+
+    <br>
+    <label for="">Imagen</label>
+    <input type="file" name="txtImagen" id="txtImagen" class="form-control" value="{{ mascotas.imagen }}">
+    <br>
+    <label for="">Estado</label>
+     <select name="cboEstado" id="cboEstado" class="form-control" value="{{ mascotas.estado }}">
+        <option value="">Seleccionar</option>
+    
+        {% for e in estados %}
+        <option
+        {% if e.id == mascotas.estado.id %}
+        {{'selected'}}
+        
+        {% endif %}
+        value="{{ e.id }}">{{ e.nombre }}</option>
+
+        {% endfor %}
+    </select>
+    <br>
+    
+    
+    <input type="submit" value="Guardar" class="btn btn-red">
+    
+    </form>
+</div>
+    <h3>{{ mensaje }}</h3>
+</div>
+
+
+{% endblock contenido_info %}
